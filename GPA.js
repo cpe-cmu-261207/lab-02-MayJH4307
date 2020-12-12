@@ -28,17 +28,11 @@ btn.addEventListener('click',() => {
 
             let template = `
             <tr>
-                <td>${idsub}</td>
-                <td>${sub}</td>
-                <td>${unit}</td>
-                <td>${gpa}</td>
+                <td id="setco">${idsub}</td>
+                <td id="setco">${sub}</td>
+                <td id="setco">${unit}</td>
+                <td id="setco">${gpa}</td>
                 <td id="ch"></td>
-                <td>${InId}</td>
-                <td>${sub}</td>
-                <td>${InUnit}</td>
-                <td>${InGpa}</td>
-                <td id="ch"></td>
-            
             </tr>`;
 
         table.innerHTML += template;
@@ -50,6 +44,9 @@ btn.addEventListener('click',() => {
         if(InId == 261||InId == 269){
                 major += InGpa*InUnit; 
                 countmajor += InUnit*a;
+                document.getElementById("setco").style.backgroundColor = "#86F3F8";
+                //document.getElementsByClassName('setco').style.backgroundColor = "#86F3F8";
+                //document.querySelectorAll('#setco').getElementById("setco").style.backgroundColor = "red";
         }else {
                 ge += InGpa*InUnit;
                 countge += InUnit*a;
@@ -63,17 +60,13 @@ sm.addEventListener('click' ,() => {
     gpamajor = major/countmajor;
     gpaall = (major+ge)/(countge+countmajor);
     let tem = `
-                <tr>
-                    <td>${gpamajor}</td>
-                    <td>${gpaall}</td>
-                </tr>
-                <tr>
-                    <td>${major}</td>
-                    <td>${countmajor}</td>
-                    <td>${ge}</td>
-                    <td>${countge}</td>
-                </tr>
+            <tr>
+                <td>Grade Major : </td>
+                <td>${gpamajor.toFixed(2)}</td>
+                <td>GPA : </td>
+                <td>${gpaall.toFixed(2)}</td>
+            </tr>
+                
     `;
-
     table.innerHTML += tem;
 });
